@@ -1,0 +1,84 @@
+@import "common-styles.scss";
+
+#root > .modal{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0 0 5px 2px black;
+    border: 1px solid #ccc7;
+    background-color: #4a293805;
+    
+    // opacity: 0;
+    // visibility: hidden;
+    transition: opacity 1.2s ease-out;
+
+    input, textarea{
+        margin: 0;
+        padding: 0;
+    }
+
+    .header{
+        width: 100%;
+        text-align: center;
+        padding: 15px 10px;
+        background-color: #b55a;
+    }
+
+    .body-modal{
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        padding: 5px 10px;
+
+        textarea, #input-title{
+            padding: 6px 5px;
+            resize: none;
+            border: none;
+            width: 100%;
+            max-width: 100%;
+            background-color: #ecca;
+            border-radius: 5px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            box-shadow: 0 0 4px $bg-tertiary;
+            &:hover{
+                border: none;
+            }
+            &:focus{
+                outline: none;
+            }
+        }
+
+        label{
+            text-transform: capitalize;
+            margin-right: 5px;
+            text-decoration: underline;
+            text-decoration-color: $bg-tertiary;
+        }
+
+        input:last-child{
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+    }
+
+    .footer{
+        width: 100%;
+        text-align: center;
+        padding: 15px 10px;
+        background-color: #b55a;
+        .btn-save-note, .btn-close-modal{
+            display: inline-block;
+            @include bigBtnStyle();
+            margin-left: 15px;
+        }
+    }   
+
+}

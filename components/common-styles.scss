@@ -1,0 +1,18 @@
+//Variables
+$bg-primary: #b55;
+$bg-secondary: #eecccc;
+$bg-tertiary:  #a33;
+$color-text: #111;
+// $paddingViewportL: 40px 50px;
+
+@mixin bigBtnStyle {
+    width: max-content;
+    margin: 0 auto;
+    padding: 5px 10px;
+    box-shadow: 0 0 5px 1px #0008;
+    border-radius: 5px;
+    background-color: $bg-tertiary;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}

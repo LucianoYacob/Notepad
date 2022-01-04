@@ -1,0 +1,28 @@
+* {
+  font-family: 'Kirang Haerang', cursive;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+#root {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(45deg, #020024 0%, #45042b 56%, #090979 75%, #91005a 100%);
+}
+
+#root h1, #root h2, #root h3 {
+  margin: 0;
+  padding: 0;
+}
+/*# sourceMappingURL=global.css.map */

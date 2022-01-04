@@ -1,0 +1,90 @@
+#root > .modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0 0 5px 2px black;
+  border: 1px solid #ccc7;
+  background-color: #4a293805;
+  transition: opacity 1.2s ease-out;
+}
+
+#root > .modal input, #root > .modal textarea {
+  margin: 0;
+  padding: 0;
+}
+
+#root > .modal .header {
+  width: 100%;
+  text-align: center;
+  padding: 15px 10px;
+  background-color: #b55a;
+}
+
+#root > .modal .body-modal {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  padding: 5px 10px;
+}
+
+#root > .modal .body-modal textarea, #root > .modal .body-modal #input-title {
+  padding: 6px 5px;
+  resize: none;
+  border: none;
+  width: 100%;
+  max-width: 100%;
+  background-color: #ecca;
+  border-radius: 5px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  box-shadow: 0 0 4px #a33;
+}
+
+#root > .modal .body-modal textarea:hover, #root > .modal .body-modal #input-title:hover {
+  border: none;
+}
+
+#root > .modal .body-modal textarea:focus, #root > .modal .body-modal #input-title:focus {
+  outline: none;
+}
+
+#root > .modal .body-modal label {
+  text-transform: capitalize;
+  margin-right: 5px;
+  text-decoration: underline;
+  text-decoration-color: #a33;
+}
+
+#root > .modal .body-modal input:last-child {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+#root > .modal .footer {
+  width: 100%;
+  text-align: center;
+  padding: 15px 10px;
+  background-color: #b55a;
+}
+
+#root > .modal .footer .btn-save-note, #root > .modal .footer .btn-close-modal {
+  display: inline-block;
+  width: max-content;
+  margin: 0 auto;
+  padding: 5px 10px;
+  box-shadow: 0 0 5px 1px #0008;
+  border-radius: 5px;
+  background-color: #a33;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  margin-left: 15px;
+}
+/*# sourceMappingURL=Modal.css.map */

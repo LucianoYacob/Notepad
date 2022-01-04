@@ -6,7 +6,7 @@ const NotepadList = () => {
     const $listContainer = d.createElement("div");
     const $list = d.createElement("ul");
 
-    $listContainer.classList.add("notepad-body");
+    $listContainer.classList.add("note-list");
     $list.classList.add("cont-notas");
 
     $listContainer.appendChild($list);

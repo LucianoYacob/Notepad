@@ -5,7 +5,7 @@ const NotepadFooter = () => {
     
     $noteFooter.classList.add("note-footer");
 
-    $noteFooter.appendChild(Button("Create Note", "btn-add-note"));
+    $noteFooter.appendChild(Button("Create Note", "btn-add", "btn-add-note"));
 
     return $noteFooter;
 }
