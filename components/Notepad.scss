@@ -6,8 +6,6 @@
     border-radius: 6px;
     transition: filter 0.4s ease-out;
 
-    filter: blur(3px);
-
     .note-header{
         max-width: 100%;
         padding: 10px 15px;
@@ -21,6 +19,31 @@
         max-width: 100%;
         padding: 20px 15px;
         background-color: $bg-secondary;
+        .cont-notas{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0 auto;
+            list-style: none;
+            .note{
+                box-sizing: border-box;
+                margin-top: 3px;
+                padding: 10px 6px;
+                border-bottom: 1px solid #888;
+                border-radius: 5px;
+                font-size: 1.2em;
+                color: #111;
+                button{
+                    float: right;
+                    width: 25px;
+                    height: 25px;
+                    margin: 0 5px;
+                    border: 1px solid $bg-tertiary;
+                    border-radius: 50%;
+                    background-color: $bg-primary;
+                    cursor: pointer;
+                }
+            } 
+        }
     }
 
     .note-footer{
@@ -32,6 +55,40 @@
         text-align: center;
         .btn-add-note{
             @include bigBtnStyle();
+        }
+    }
+
+    @media screen and (min-width: 620px) {
+        width: 60%;
+    }
+    @media screen and (min-width: 1100px) {
+        width: 30%;
+    }
+
+    @media screen and (min-width: 1920px) {
+        width: 50%;
+        .note-header{
+            padding: $paddingViewportL;
+        }
+        .note-list{
+            padding: $paddingViewportL;
+            .cont-notas{
+                .note{
+                    font-size: 1.2rem;
+                    button{
+                        width: 40px;
+                        height: 40px;
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+        .note-footer{
+            padding: 30px 50px;
+            .btn-add-note{
+                padding: 10px 20px;
+                font-size: 2rem;
+            }
         }
     }
 }

@@ -8,6 +8,8 @@
   box-shadow: 0 0 5px 2px black;
   border: 1px solid #ccc7;
   background-color: #4a293805;
+  opacity: 0;
+  visibility: hidden;
   transition: opacity 1.2s ease-out;
 }
 
@@ -86,5 +88,50 @@
   border: none;
   font-size: 1rem;
   margin-left: 15px;
+}
+
+@media screen and (min-width: 620px) {
+  #root > .modal {
+    width: 80%;
+  }
+  #root > .modal .body-modal {
+    margin: 8px auto;
+    width: 70%;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  #root > .modal {
+    width: 50%;
+  }
+  #root > .modal .body-modal {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  #root > .modal {
+    width: 60%;
+  }
+  #root > .modal .body-modal {
+    width: 75%;
+    padding: 40px 50px;
+    padding-bottom: 30px;
+  }
+  #root > .modal .body-modal textarea, #root > .modal .body-modal #input-title {
+    font-size: 1.7rem;
+  }
+  #root > .modal .body-modal label {
+    font-size: 3rem;
+  }
+  #root > .modal .body-modal #color-selector {
+    width: 60px;
+    height: 40px;
+  }
+  #root > .modal .footer .btn-save-note, #root > .modal .footer .btn-close-modal {
+    padding: 10px 20px;
+    font-size: 1.8rem;
+  }
 }
 /*# sourceMappingURL=Modal.css.map */

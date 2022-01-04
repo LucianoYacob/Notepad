@@ -1,5 +1,3 @@
-import Item from "./ItemList.js";
-
 const d = document;
 
 const NotepadList = () => {
@@ -8,6 +6,7 @@ const NotepadList = () => {
 
     $listContainer.classList.add("note-list");
     $list.classList.add("cont-notas");
+    $list.id = "list";
 
     $listContainer.appendChild($list);
 

@@ -25,4 +25,10 @@ body {
   margin: 0;
   padding: 0;
 }
+
+@media screen and (min-width: 1920px) {
+  #root {
+    font-size: 1.9rem;
+  }
+}
 /*# sourceMappingURL=global.css.map */
