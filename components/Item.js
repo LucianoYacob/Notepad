@@ -1,8 +1,6 @@
-import { ChangeVisibility as modalVisibility } from "../../helpers/handleModal.js";
-
 const d = document;
 
-export default function Item() {
+export default function Item({id, title, color}) {
     const $li = d.createElement("li"),
         $title = d.createElement("span"),
         $btnDelete = d.createElement("button"),
@@ -13,31 +11,13 @@ export default function Item() {
     $btnDelete.classList.add("delete");
     $btnUpdate.classList.add("update");
     
-    //$li.id = id;
+    $li.id = id;
 
-    $title.textContent = "title";
+    $title.textContent = title;
     $btnDelete.innerHTML = `<i class="far fa-trash-alt"></i>`;
     $btnUpdate.innerHTML = `<i class="far fa-edit"></i>`;
     
-    //li.style.backgroundColor = color;
-
-
-    // Esto lo puedo hacer con la delegacion de evento desde el index, verifico el id del boton q le puedo poner "delete" y x clase pasarle la posicion q quiero q borre, y borrarlo desde ahi
-    $btnDelete.addEventListener("click", () => {
-        if(confirm("Estas seguro de querer eliminar esta nota?")){
-            alert("Nota eliminada");
-            // DeleteNote(id);
-            // contNotas.removeChild(li);
-        }
-    });
-
-    $btnUpdate.addEventListener("click", () => {
-        $li.classList.add("active");
-        // inputTitulo.value = title;
-        // textArea.value = note;
-        // colorSelector.value = color;
-        modalVisibility(3,1, false)
-    });
+    $li.style.backgroundColor = color;
 
     $li.appendChild($title);
     $li.appendChild($btnDelete);

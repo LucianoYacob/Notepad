@@ -42,6 +42,9 @@
                     background-color: $bg-primary;
                     cursor: pointer;
                 }
+                button i{
+                    pointer-events: none;
+                }
             } 
         }
     }
