@@ -13,7 +13,17 @@ const useLocalStorage = (data = {}, method = "get") => {
         return notes;
     }
     else if(method === "set"){
+        console.log("creando")
         notes.push(data);
+        ls.setItem("notes", JSON.stringify(notes));
+    }
+    else if(method === "update"){
+        console.log("actualizando")
+        let id = notes[data.id].id;
+        notes[data.id] = {
+            ...data,
+            id,
+        }
         ls.setItem("notes", JSON.stringify(notes));
     }
     else if(method === "delete"){

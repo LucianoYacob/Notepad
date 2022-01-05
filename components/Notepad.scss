@@ -19,6 +19,8 @@
         max-width: 100%;
         padding: 20px 15px;
         background-color: $bg-secondary;
+        max-height: 400px;
+        overflow-y: scroll;
         .cont-notas{
             box-sizing: border-box;
             padding: 0;
@@ -46,6 +48,11 @@
                     pointer-events: none;
                 }
             } 
+        }
+        
+        &::-webkit-scrollbar{
+            width: 0;
+            background-color: transparent;
         }
     }
 

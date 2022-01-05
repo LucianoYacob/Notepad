@@ -18,6 +18,8 @@
   max-width: 100%;
   padding: 20px 15px;
   background-color: #eecccc;
+  max-height: 400px;
+  overflow-y: scroll;
 }
 
 .notepad .note-list .cont-notas {
@@ -50,6 +52,11 @@
 
 .notepad .note-list .cont-notas .note button i {
   pointer-events: none;
+}
+
+.notepad .note-list::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
 }
 
 .notepad .note-footer {

@@ -1,9 +1,11 @@
 import App from "./app.js";
-import { ChangeVisibility as modalVisibility } from "../../helpers/handleModal.js";
 import { handleModal } from "../../helpers/handleModal.js";
 import { addNote } from "../../helpers/addNote.js";
 import readNotes from "../../helpers/readNotes.js";
-import removeLs from "../../helpers/useLocalStorage.js";
+import deleteNote from "../../helpers/deleteNote.js";
+import updateNote from "../../helpers/updateNote.js";
+import notes from "../../helpers/useLocalStorage.js";
+
 
 const d = document;
 
@@ -16,17 +18,40 @@ d.addEventListener("click", (e) => {
     const target = e.target;
 
     if(target.matches("#btn-add") || target.matches("#close-modal") || target.matches("#save-note")){
-        if(target.matches("#save-note")){
-            const title = d.getElementById("input-title").value,
-                note = d.getElementById("note-cont").value,
+        const $list = d.getElementById("list");
+        const childs = [...$list.children];
+        let activeChild = childs.findIndex(e => e.classList.contains("active"));
+
+        if(activeChild === -1){
+            if(target.matches("#save-note")){
+                const title = d.getElementById("input-title").value.trim(),
+                    note = d.getElementById("note-cont").value.trim(),
+                    color = d.getElementById("color-selector").value;
+    
+                if(title.trim() === "" || note.trim() === ""){
+                    alert("You need to add a title and a text to your note.");
+                }
+                else{
+                    let id = `${d.getElementById("list").childElementCount}${Math.floor(Math.random() * 100)}`;
+                    addNote(id, title, note, color);
+                }
+            }
+        }
+        else{
+            const title = d.getElementById("input-title").value.trim(),
+                note = d.getElementById("note-cont").value.trim(),
                 color = d.getElementById("color-selector").value;
 
-            if(title.trim() === "" || note.trim() === "")
+            if(title.trim() === "" || note.trim() === ""){
                 alert("You need to add a title and a text to your note.");
-            else{
-                let id = d.getElementById("list").childElementCount;
-
-                addNote(id, title, note, color);
+            }
+            else{           
+                let id = activeChild;
+                updateNote(id, title, note, color);
+                const $liChanged = $list.querySelector(".active");
+                $liChanged.style.backgroundColor = color;
+                $liChanged.textContent = title;
+                $liChanged.classList.remove("active");
             }
         }
         
@@ -34,20 +59,35 @@ d.addEventListener("click", (e) => {
     }
 
     if(target.matches(".delete")){
+        target.parentNode.classList.add("active");
+
         if(confirm("Estas seguro de querer eliminar esta nota?")){
-            const liId = target.parentNode.id;
-            alert("Nota eliminada");
-            removeLs({id: liId}, "delete");
-            // DeleteNote(id);
-            // contNotas.removeChild(li);
+            
+            const $li = target.parentNode,
+                list = [...$li.parentNode.children];
+
+            const id = list.findIndex(e => e.classList.contains("active"));
+
+            deleteNote(id, $li.id);
+            alert("Note deleted");
         }
+
+        target.parentNode.classList.remove("active");
     }
     if(target.matches(".update")){
-        alert("Update");
         target.parentNode.classList.add("active");
-        // inputTitulo.value = title;
-        // textArea.value = note;
-        // colorSelector.value = color;
-        modalVisibility(3,1, false)
+    
+        const $li = target.parentNode,
+        list = [...$li.parentNode.children];
+        
+        let id = list.findIndex(e => e.classList.contains("active"));
+        
+        let note = notes("get").find((e, i) => i === id);
+    
+        d.getElementById("input-title").value = note.title;
+        d.getElementById("note-cont").value = note.note;
+        d.getElementById("color-selector").value = note.color;
+
+        handleModal(e);
     }
 });

@@ -2,10 +2,16 @@ const d = document;
 
 export const handleModal = (e) => {
     if(e.target.matches("#btn-add")){
+        d.getElementById("input-title").value = "";
+        d.getElementById("note-cont").value = "";
+        d.getElementById("color-selector").value = "#f5c1c1";
         ChangeVisibility(3, 1, false)
     }
     else if(e.target.matches("#close-modal") || e.target.matches("#save-note")){
         ChangeVisibility(0, 0, true)
+    }
+    else if(e.target.matches(".update")){
+        ChangeVisibility(3, 1, false)
     }
 }
 
