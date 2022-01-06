@@ -8,11 +8,19 @@ export const handleModal = (e) => {
         ChangeVisibility(3, 1, false)
     }
     else if(e.target.matches("#close-modal") || e.target.matches("#save-note")){
-        ChangeVisibility(0, 0, true)
+        ChangeVisibility(0, 0, true);
+
+        const $list = d.getElementById("list").children;
+        for (const li of $list) {
+            if(li.classList.contains("active")){
+                li.classList.remove("active")
+            }
+        }
     }
     else if(e.target.matches(".update")){
         ChangeVisibility(3, 1, false)
     }
+
 }
 
 
