@@ -37,7 +37,7 @@ const setNote = () => {
         
         const $liActived = $list.querySelector(".active");
         $liActived.style.backgroundColor = color;
-        $liActived.querySelector(".title").value = title;
+        $liActived.querySelector(".title").textContent = title;
         
         const data = {
             id,
