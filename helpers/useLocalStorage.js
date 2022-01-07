@@ -1,3 +1,5 @@
+import { addNote } from "./addNote.js";
+
 const useLocalStorage = (data = {}, method = "get") => {
     const ls = window.localStorage;
 
@@ -10,7 +12,8 @@ const useLocalStorage = (data = {}, method = "get") => {
     if(method === "get"){
         return notes;
     }
-    else if(method === "add"){
+    else if(method === "set"){
+        console.log("creando")
         notes.push(data);
         ls.setItem("notes", JSON.stringify(notes));
     }
